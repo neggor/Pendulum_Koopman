@@ -260,28 +260,5 @@ def run_vanilla_nn():
     plt.show()
 
 if __name__ == "__main__":
-    
-    #model = NeuralNetwork()
-    #input = torch.tensor([1, 2, 3], dtype=torch.float32, requires_grad=True).unsqueeze(0)
-    #output = model(input)
-    #
-    ## 1st derivative:
-    ## \dot{\theta} = \theta_dot
-    #dtheta = torch.autograd.grad(output, input, grad_outputs=torch.ones_like(output), create_graph=True)[0]
-    #print(f"Output: {output}")
-    #print(f"1st derivative: {dtheta}")
-    ## 2nd derivative:
-    ## \ddot{\theta} = \dot{\theta_dot}
-    #ddtheta = torch.autograd.grad(dtheta, input, grad_outputs=torch.ones_like(dtheta))[0]
-    #print(f"2nd derivative: {ddtheta}")
-    #exit()
-    # Train the model
-    #trainer = train_network(epochs=100, n_samples=2000, damped=False, lr=0.0001, batch_size=128)
-    #trainer.train()
-    #trainer.plot_loss()
-#
-    ## Predict the angle for a given initial condition
-
-
-    #run_pinn()
+    run_pinn()
     run_vanilla_nn()

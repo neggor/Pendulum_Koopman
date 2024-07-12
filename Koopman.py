@@ -321,9 +321,6 @@ if __name__ == "__main__":
         latent_trajectory.append(my_k.encoder(torch.tensor(sol.y[:, i], dtype=torch.float32).unsqueeze(0).to(device)).cpu().detach().numpy()[0])
     latent_trajectory = np.array(latent_trajectory)
     
-
-    # Standardize the latent and the actual trajectory
-    
     fig, axs = plt.subplots(1, 2, figsize=(15, 8))
 
     # Plot the latent space trajectory
@@ -371,10 +368,3 @@ if __name__ == "__main__":
     plt.tight_layout()
     plt.savefig('latent_and_phase_space_trajectory.png')
     plt.show()
-
-
-    # Finally, let's make a gif of the pendulum via numerical solution and via neural network
-    os.makedirs('GIF3', exist_ok=True)
-    sol = solve_pendulum(z0 = [0.85*np.pi, 0], t_range=(0, 10), evals=100)
-    latent_trajectory = []
-   

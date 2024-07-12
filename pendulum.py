@@ -160,103 +160,102 @@ def dumped_pendulum_equation(t, z):
     return [z[1], -g * np.sin(z[0]) - c * z[1]] # Here first term is \dot{\theta} and second term is \ddot{\theta}
 
 def make_plots():
-    # Generate an axis
-    #fig = plt.figure()
-    #ax = fig.add_subplot(111)
-#
-    #draw_unit_circle(ax)
-    #draw_pendulum(ax, 0, 'black', "Steady state")
-    #draw_pendulum(ax, np.pi/4, 'red', "Perturbation")
-    #ax.legend()
-    #ax.set_title(f"{np.round(np.pi/4, 2)} rad perturbation")
-    #plt.savefig("pendulum1.png")
-    #plt.close()
-    ##GIF 1, evolution of potential energy
-#
-    #os.makedirs('GIF1', exist_ok=True)
-    #n_images = 20
-    #for i in range(1, n_images):
-    #    fig = plt.figure()
-    #    ax = fig.add_subplot(111)
-    #    draw_unit_circle(ax)
-    #    draw_pendulum(ax, 0, 'black', "Steady state")
-    #    draw_pendulum(ax, np.pi * i/n_images, 'red')
-    #    ax.set_title(f"{np.round(np.pi * i/n_images, 2)} rad perturbation \n Potential energy: {np.round(potential_energy(np.pi * i/n_images), 2)}")
-    #    ax.legend()
-    #    plt.savefig(f"GIF1/{i}.png")
-    #    plt.close()
-    #make_gif('GIF1', 'pendulum1', 100)
-#
-#
-    #os.makedirs('GIF2', exist_ok=True)
-    #sol = solve_pendulum(z0 = [0.85*np.pi, 0]) # This is more fun changing the initial conditions
-#
-    #for i in range(1, len(sol.t)):
-    #    fig = plt.figure(figsize=(10, 5))
-    #    ax1 = fig.add_subplot(121)
-    #    ax2 = fig.add_subplot(122)
-#
-    #    # draw the pendulum
-    #    draw_unit_circle(ax1)
-    #    draw_pendulum(ax1, sol.y[0, i], 'black', 'Pendulum')
-    #    ax1.set_title(f"Angle: {np.round(sol.y[0, i], 2)} rad")
-    #    ax1.set_xlabel('x')
-    #    ax1.set_ylabel('y')
-#
-    #    # plot the phase space
-    #    plot_phase_space(ax2)
-    #    ax2.plot(np.sign(sol.y[0, i]) * (abs(sol.y[0, i]) % (np.pi)), sol.y[1, i], 'ro')
-    #    ax2.set_title(f"Angle: {np.round(sol.y[0, i], 2)} rad \n Velocity: {np.round(sol.y[1, i], 2)} rad/s")
-    #    ax2.set_xlabel('Angle')
-    #    ax2.set_ylabel('Velocity')
-#
-    #    plt.savefig(f"GIF2/{i}.png")
-    #    plt.close()
-#
-    #make_gif('GIF2', 'pendulum2', 100)
-#
-    ## Visualize the angle
-    ## As above we correct to have the angle between -2\pi and 2\pi. 
-    #plt.plot(sol.t, np.sign(sol.y[0]) * (abs(sol.y[0]) % (np.pi)))
-    #plt.title("Angle vs time")
-    #plt.xlabel("Time")
-    #plt.ylabel("Angle")
-    #plt.savefig("Angle_vs_time.png")
-#
-#
-    #os.makedirs('GIF4', exist_ok=True)
-    sol = solve_pendulum(z0 = [0.85*np.pi, 0], derivative_system=dumped_pendulum_equation) # This is more fun changing the initial conditions
-#
-    #for i in range(1, len(sol.t)):
-    #    fig = plt.figure(figsize=(10, 5))
-    #    ax1 = fig.add_subplot(121)
-    #    ax2 = fig.add_subplot(122)
-#
-    #    # draw the pendulum
-    #    draw_unit_circle(ax1)
-    #    draw_pendulum(ax1, sol.y[0, i], 'black', 'Pendulum')
-    #    ax1.set_title(f"Angle: {np.round(sol.y[0, i], 2)} rad")
-    #    ax1.set_xlabel('x')
-    #    ax1.set_ylabel('y')
-#
-    #    # plot the phase space
-    #    plot_phase_space(ax2)
-    #    ax2.plot(np.sign(sol.y[0, i]) * (abs(sol.y[0, i]) % (np.pi)), sol.y[1, i], 'ro')
-    #    ax2.set_title(f"Angle: {np.round(sol.y[0, i], 2)} rad \n Velocity: {np.round(sol.y[1, i], 2)} rad/s")
-    #    ax2.set_xlabel('Angle')
-    #    ax2.set_ylabel('Velocity')
-#
-    #    plt.savefig(f"GIF4/{i}.png")
-    #    plt.close()
-#
-    #make_gif('GIF4', 'pendulum4', 100)
+    #Generate an axis
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
 
-    #plt.close()
-    #plt.plot(sol.t, np.sign(sol.y[0]) * (abs(sol.y[0]) % (np.pi)))
-    #plt.title("Angle vs time")
-    #plt.xlabel("Time")
-    #plt.ylabel("Angle")
-    #plt.savefig("Angle_vs_time_dumped.png")
+    draw_unit_circle(ax)
+    draw_pendulum(ax, 0, 'black', "Steady state")
+    draw_pendulum(ax, np.pi/4, 'red', "Perturbation")
+    ax.legend()
+    ax.set_title(f"{np.round(np.pi/4, 2)} rad perturbation")
+    plt.savefig("pendulum1.png")
+    plt.close()
+    #GIF 1, evolution of potential energy
+
+    os.makedirs('GIF1', exist_ok=True)
+    n_images = 20
+    for i in range(1, n_images):
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        draw_unit_circle(ax)
+        draw_pendulum(ax, 0, 'black', "Steady state")
+        draw_pendulum(ax, np.pi * i/n_images, 'red')
+        ax.set_title(f"{np.round(np.pi * i/n_images, 2)} rad perturbation \n Potential energy: {np.round(potential_energy(np.pi * i/n_images), 2)}")
+        ax.legend()
+        plt.savefig(f"GIF1/{i}.png")
+        plt.close()
+    make_gif('GIF1', 'pendulum1', 100)
+
+
+    os.makedirs('GIF2', exist_ok=True)
+    sol = solve_pendulum(z0 = [0.85*np.pi, 0]) # This is more fun changing the initial conditions
+
+    for i in range(1, len(sol.t)):
+        fig = plt.figure(figsize=(10, 5))
+        ax1 = fig.add_subplot(121)
+        ax2 = fig.add_subplot(122)
+
+        # draw the pendulum
+        draw_unit_circle(ax1)
+        draw_pendulum(ax1, sol.y[0, i], 'black', 'Pendulum')
+        ax1.set_title(f"Angle: {np.round(sol.y[0, i], 2)} rad")
+        ax1.set_xlabel('x')
+        ax1.set_ylabel('y')
+
+        # plot the phase space
+        plot_phase_space(ax2)
+        ax2.plot(np.sign(sol.y[0, i]) * (abs(sol.y[0, i]) % (np.pi)), sol.y[1, i], 'ro')
+        ax2.set_title(f"Angle: {np.round(sol.y[0, i], 2)} rad \n Velocity: {np.round(sol.y[1, i], 2)} rad/s")
+        ax2.set_xlabel('Angle')
+        ax2.set_ylabel('Velocity')
+
+        plt.savefig(f"GIF2/{i}.png")
+        plt.close()
+
+    make_gif('GIF2', 'pendulum2', 100)
+
+    # Visualize the angle
+    # As above we correct to have the angle between -2\pi and 2\pi. 
+    plt.plot(sol.t, np.sign(sol.y[0]) * (abs(sol.y[0]) % (np.pi)))
+    plt.title("Angle vs time")
+    plt.xlabel("Time")
+    plt.ylabel("Angle")
+    plt.savefig("Angle_vs_time.png")
+
+
+    os.makedirs('GIF4', exist_ok=True)
+    sol = solve_pendulum(z0 = [0.85*np.pi, 0], derivative_system=dumped_pendulum_equation) # This is more fun changing the initial conditions
+
+    for i in range(1, len(sol.t)):
+        fig = plt.figure(figsize=(10, 5))
+        ax1 = fig.add_subplot(121)
+        ax2 = fig.add_subplot(122)
+
+        # draw the pendulum
+        draw_unit_circle(ax1)
+        draw_pendulum(ax1, sol.y[0, i], 'black', 'Pendulum')
+        ax1.set_title(f"Angle: {np.round(sol.y[0, i], 2)} rad")
+        ax1.set_xlabel('x')
+        ax1.set_ylabel('y')
+
+        # plot the phase space
+        plot_phase_space(ax2)
+        ax2.plot(np.sign(sol.y[0, i]) * (abs(sol.y[0, i]) % (np.pi)), sol.y[1, i], 'ro')
+        ax2.set_title(f"Angle: {np.round(sol.y[0, i], 2)} rad \n Velocity: {np.round(sol.y[1, i], 2)} rad/s")
+        ax2.set_xlabel('Angle')
+        ax2.set_ylabel('Velocity')
+
+        plt.savefig(f"GIF4/{i}.png")
+        plt.close()
+
+    make_gif('GIF4', 'pendulum4', 100)
+    plt.close()
+    plt.plot(sol.t, np.sign(sol.y[0]) * (abs(sol.y[0]) % (np.pi)))
+    plt.title("Angle vs time")
+    plt.xlabel("Time")
+    plt.ylabel("Angle")
+    plt.savefig("Angle_vs_time_dumped.png")
 
 
     ### Combined plot NN with numerical solution
