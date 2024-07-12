@@ -1,1 +1,1 @@
-![](images/pendulum5.gif)
+![til](./images/pendulum5.gif)
